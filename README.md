@@ -1,1 +1,1 @@
-# great_js_marathon
+# calculator
