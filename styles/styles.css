@@ -32,7 +32,7 @@ blue #4B5EFC
 .buttons {
     display: grid;
     grid-template-areas:
-    "ac plus-minus percent division"
+    "C plus-minus percent divide"
     "seven eight nine myltiply"
     "four five six minus"
     "one two three plus"
@@ -55,11 +55,12 @@ blue #4B5EFC
     filter: brightness(150%);
 }
 .btn:active {
-    filter: brightness(70%);
-}
-.btn.bg-blue {
-    background: #4B5EFC;
+    filter: brightness(75%);
 }
 .btn.bg-grey {
     background: #4E505F;
+}
+.btn.bg-blue {
+    background: #4B5EFC;
+    font-size: 2.5rem;
 }

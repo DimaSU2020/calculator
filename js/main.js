@@ -2,9 +2,7 @@ let numberOne = '';
 let numberTwo = ''; 
 let operandFunction = ''; 
 let finish = false;
-const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['/', 'x', '-', '+'];
-let out = document.querySelector('.calc-screen p');
+import {digit, action, out, divideNobe, myltiplyNobe, minusNobe, plusNobe} from './view.js';
 
 function clearAll () {
     numberOne = ''; 
@@ -13,11 +11,14 @@ function clearAll () {
     finish = false;
     out.textContent = 0;
 }
-document.querySelector('.ac').onclick = clearAll;
 
-document.querySelector('.buttons').onclick = (event) => {
+document.querySelector('.C').addEventListener ('click', clearAll);
+
+document.querySelector('.buttons').addEventListener ('click', keyBoardUse);
+
+function keyBoardUse (event) {
     if (!event.target.classList.contains('btn')) return;
-    if (event.target.classList.contains('ac')) return;
+    if (event.target.classList.contains('C')) return;
     out.textContent = '';
     const key = event.target.textContent;
     if (digit.includes(key)) {
@@ -44,20 +45,20 @@ document.querySelector('.buttons').onclick = (event) => {
     if (key === '=') {
         if (numberTwo === '') numberTwo = numberOne;
         switch (operandFunction) {
-            case "/":
+            case divideNobe.textContent:
                 if (numberTwo === '0') {
-                    out.textContent = 'Error';
+                    out.textContent = 'Err';
                     return;
                 }
                 numberOne = numberOne / numberTwo;
             break;
-            case "x":
+            case myltiplyNobe.textContent:
                 numberOne = numberOne * numberTwo;
             break;
-            case "-":
+            case minusNobe.textContent:
                 numberOne = numberOne - numberTwo;
             break;
-            case "+":
+            case plusNobe.textContent:
                 numberOne = (+numberOne) + (+numberTwo);
             break;
         }
